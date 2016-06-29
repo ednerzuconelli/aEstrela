@@ -262,17 +262,19 @@ public class AStar<T> {
             strings.addAll(Arrays.asList(linha.split("(\\s{1})")));
             arq.close();
         } catch (IOException e) {
-            System.err.printf("Erro na abertura do arquivo: %s.\n",
+            System.err.printf("Erro na abertura do arquivo.\n",
             e.getMessage());
         }  
-    	int cont = 0;
+    	int cont1 = 0;
+    	int cont2 = 0;
     	for (int i=0; i<strings.size();i++){
     		if (!strings.get(i).equals(resultado.get(i))){
-    			cont +=1;
+    			cont1 +=1;
     		}	
+    		
     	}
-    	System.out.println("heuristaca 1 " + cont);
-    	
+    	System.out.println("heuristica 1 " + cont1);
+    	System.out.println("heuristica 2 " + cont2);
     	/*for (String str : strings) 
           	System.out.println(str);
            
