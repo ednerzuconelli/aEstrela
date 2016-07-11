@@ -252,11 +252,27 @@ public class AStar<T> {
 
 
     public static void main(String[] args) {
-    	List<String> resultado = new ArrayList<String>();
-    	resultado.addAll(Arrays.asList("1","12","11","10","2","13","0","9","3","14","15","8","4","5","6","7"));
+    	HashMap<Integer,Integer> resultado = new HashMap<Integer,Integer>();
+    	HashMap<Integer,Integer> inicial = new HashMap<Integer,Integer>();
+    	resultado.put(0, 1);
+    	resultado.put(1, 2);
+    	resultado.put(2, 3);
+    	resultado.put(3, 4);
+    	resultado.put(4, 12);
+    	resultado.put(5, 13);
+    	resultado.put(6, 14);
+    	resultado.put(7, 5);
+    	resultado.put(8, 11);
+    	resultado.put(9, 0);
+    	resultado.put(10, 15);
+    	resultado.put(11, 6);
+    	resultado.put(12, 10);
+    	resultado.put(13, 9);
+    	resultado.put(14, 8);
+    	resultado.put(15, 7);
     	List<String> strings = new ArrayList<String>();
     	try {
-        	FileReader arq = new FileReader("D:/Dowloads/caso/1.in");
+        	FileReader arq = new FileReader("E:/git/aEstrela/1.txt");
             BufferedReader lerArq = new BufferedReader(arq);
             String linha = lerArq.readLine(); // lê a primeira linha
             strings.addAll(Arrays.asList(linha.split("(\\s{1})")));
@@ -267,17 +283,20 @@ public class AStar<T> {
         }  
     	int cont1 = 0;
     	int cont2 = 0;
-    	for (int i=0; i<strings.size();i++){
-    		if (!strings.get(i).equals(resultado.get(i))){
+    	for (int i=0; i < strings.size();i++){
+    		inicial.put(i, Integer.parseInt(strings.get(i)));
+    	}
+    	
+    	for (int i=0; i<inicial.size();i++){
+    		if (!inicial.get(i).equals(resultado.get(i))){
     			cont1 +=1;
     		}	
     		
     	}
     	System.out.println("heuristica 1 " + cont1);
     	System.out.println("heuristica 2 " + cont2);
-    	/*for (String str : strings) 
-          	System.out.println(str);
-           
+    	   
+    	
     	Map<String, Map<String, Double>> hueristic = new HashMap<String, Map<String, Double>>();
         // map for A    
         Map<String, Double> mapA = new HashMap<String, Double>();
@@ -347,5 +366,5 @@ public class AStar<T> {
         for (String path : aStar.astar("A", "F")) {
             System.out.println(path);
         }
-    */}
+    }
 }
